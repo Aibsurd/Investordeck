@@ -36,16 +36,16 @@ export const SlideLayout: React.FC<SlideLayoutProps> = ({ slide }) => {
     switch (slide.type) {
       case SlideType.TITLE:
         return (
-          <div className="flex flex-col h-full justify-center items-start text-left max-w-7xl mx-auto px-6 relative z-10">
-            <motion.div variants={itemVariants} className="flex items-center gap-6 mb-16 opacity-70">
-              <span className="text-white font-mono text-[10px] tracking-[0.4em] uppercase">Private & Confidential</span>
+          <div className="flex flex-col h-full justify-center items-start text-left max-w-7xl mx-auto px-6 pt-24 pb-12 relative z-10">
+            <motion.div variants={itemVariants} className="flex items-center gap-4 md:gap-6 mb-8 md:mb-16 opacity-70">
+              <span className="text-white font-mono text-[8px] md:text-[10px] tracking-[0.3em] md:tracking-[0.4em] uppercase">Private & Confidential</span>
               <div className="w-px h-3 bg-white/30"></div>
-              <span className="text-white font-mono text-[10px] tracking-[0.4em] uppercase">V4.1.1 Production</span>
+              <span className="text-white font-mono text-[8px] md:text-[10px] tracking-[0.3em] md:tracking-[0.4em] uppercase">V4.1.1 Production</span>
             </motion.div>
             
             <motion.h1 
               variants={itemVariants}
-              className="text-7xl md:text-8xl lg:text-[10rem] font-bold tracking-tighter mb-8 leading-[0.8] text-white"
+              className="text-5xl md:text-8xl lg:text-[10rem] font-bold tracking-tighter mb-8 leading-[0.9] md:leading-[0.8] text-white break-words"
             >
               {slide.title}
             </motion.h1>
@@ -55,14 +55,14 @@ export const SlideLayout: React.FC<SlideLayoutProps> = ({ slide }) => {
               className="w-full h-px bg-gradient-to-r from-indigo-500 to-transparent mb-12 opacity-50"
             />
             
-            <motion.div variants={itemVariants} className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+            <motion.div variants={itemVariants} className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-start">
                <div>
-                  <h2 className="text-xl md:text-3xl text-indigo-400 font-mono tracking-widest mb-6 uppercase">
+                  <h2 className="text-lg md:text-3xl text-indigo-400 font-mono tracking-widest mb-4 md:mb-6 uppercase">
                     {slide.subtitle}
                   </h2>
                </div>
                <div>
-                  <p className="text-2xl md:text-3xl font-light leading-tight text-gray-200 mb-6 border-l-2 border-white/20 pl-6">
+                  <p className="text-xl md:text-3xl font-light leading-tight text-gray-200 mb-6 border-l-2 border-white/20 pl-6">
                     {slide.content?.heading}
                   </p>
                   <p className="text-gray-500 font-mono text-xs md:text-sm tracking-wide pl-6 opacity-60">
@@ -78,16 +78,16 @@ export const SlideLayout: React.FC<SlideLayoutProps> = ({ slide }) => {
       case SlideType.TECH:
       case SlideType.COMPETITION:
         return (
-          <div className="flex flex-col h-full pt-16 md:pt-24 max-w-[1400px] mx-auto w-full px-6 md:px-12">
+          <div className="flex flex-col min-h-full pt-24 md:pt-32 pb-16 max-w-[1400px] mx-auto w-full px-6 md:px-12">
             {/* Header */}
-            <div className="mb-16 flex flex-col md:flex-row md:items-end justify-between border-b border-white/[0.05] pb-8">
+            <div className="mb-10 md:mb-16 flex flex-col md:flex-row md:items-end justify-between border-b border-white/[0.05] pb-8">
               <motion.div variants={itemVariants}>
                  <h3 className="text-indigo-500 font-mono text-xs tracking-[0.3em] mb-4 uppercase font-bold">{slide.subtitle}</h3>
-                 <h2 className="text-5xl md:text-7xl font-bold text-white tracking-tighter">{slide.title}</h2>
+                 <h2 className="text-3xl md:text-7xl font-bold text-white tracking-tighter">{slide.title}</h2>
               </motion.div>
               {slide.content?.heading && (
-                <motion.div variants={itemVariants} className="mt-8 md:mt-0 max-w-xl text-right">
-                  <p className="text-gray-300 text-lg md:text-xl font-light leading-relaxed">
+                <motion.div variants={itemVariants} className="mt-6 md:mt-0 max-w-xl md:text-right">
+                  <p className="text-gray-300 text-base md:text-xl font-light leading-relaxed">
                     {slide.content.heading}
                   </p>
                 </motion.div>
@@ -95,24 +95,24 @@ export const SlideLayout: React.FC<SlideLayoutProps> = ({ slide }) => {
             </div>
 
             {/* Grid */}
-            <div className={`grid grid-cols-1 ${slide.content?.points && slide.content.points.length > 3 ? 'md:grid-cols-2' : 'lg:grid-cols-3'} gap-6 lg:gap-10`}>
+            <div className={`grid grid-cols-1 ${slide.content?.points && slide.content.points.length > 3 ? 'md:grid-cols-2' : 'lg:grid-cols-3'} gap-4 md:gap-10`}>
               {slide.content?.points?.map((point, index) => (
                 <motion.div 
                   key={index}
                   variants={techCardVariants}
-                  className="group relative flex flex-col bg-white/[0.02] border border-white/5 p-8 hover:bg-white/[0.04] hover:border-indigo-500/30 transition-all duration-500"
+                  className="group relative flex flex-col bg-white/[0.02] border border-white/5 p-6 md:p-8 hover:bg-white/[0.04] hover:border-indigo-500/30 transition-all duration-500"
                 >
-                  <div className="mb-8 flex items-start justify-between">
+                  <div className="mb-6 md:mb-8 flex items-start justify-between">
                      {/* Clean Icon - No Box */}
                      <div className="text-indigo-400 group-hover:text-white transition-colors duration-500">
                         {point.icon && (
-                          <IconRenderer name={point.icon} className="w-8 h-8" />
+                          <IconRenderer name={point.icon} className="w-6 h-6 md:w-8 md:h-8" />
                         )}
                      </div>
                     <span className="font-mono text-xs text-gray-700 group-hover:text-indigo-500/50 mt-1">0{index + 1}</span>
                   </div>
                   
-                  <h4 className="text-xl font-bold mb-4 text-gray-100 tracking-tight">
+                  <h4 className="text-lg md:text-xl font-bold mb-3 md:mb-4 text-gray-100 tracking-tight">
                     {point.title}
                   </h4>
                   <p className="text-sm text-gray-400 leading-relaxed font-light group-hover:text-gray-300 transition-colors">
@@ -126,34 +126,34 @@ export const SlideLayout: React.FC<SlideLayoutProps> = ({ slide }) => {
 
       case SlideType.MARKET:
         return (
-           <div className="flex flex-col h-full justify-center max-w-7xl mx-auto w-full px-6 md:px-12">
-             <motion.div variants={itemVariants} className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32 items-center">
+           <div className="flex flex-col min-h-full justify-center pt-24 pb-16 max-w-7xl mx-auto w-full px-6 md:px-12">
+             <motion.div variants={itemVariants} className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-32 items-center">
                 
                 {/* Left: Heading & Context */}
                 <div>
-                   <h3 className="text-indigo-500 font-mono text-xs tracking-[0.3em] mb-6 uppercase font-bold">{slide.subtitle}</h3>
-                   <h2 className="text-6xl md:text-8xl font-bold mb-10 tracking-tighter text-white leading-[0.9]">{slide.title}</h2>
-                   <div className="w-24 h-1 bg-indigo-500 mb-10"></div>
-                   <p className="text-xl md:text-2xl text-gray-400 font-light leading-relaxed">
+                   <h3 className="text-indigo-500 font-mono text-xs tracking-[0.3em] mb-4 md:mb-6 uppercase font-bold">{slide.subtitle}</h3>
+                   <h2 className="text-4xl md:text-8xl font-bold mb-6 md:mb-10 tracking-tighter text-white leading-[0.9]">{slide.title}</h2>
+                   <div className="w-16 md:w-24 h-1 bg-indigo-500 mb-6 md:mb-10"></div>
+                   <p className="text-lg md:text-2xl text-gray-400 font-light leading-relaxed">
                      {slide.content?.body}
                    </p>
                 </div>
 
                 {/* Right: Metrics */}
-                <div className="space-y-6 md:space-y-8">
+                <div className="space-y-4 md:space-y-8">
                   {slide.content?.metrics?.map((metric, i) => (
                     <motion.div 
                       key={i}
                       variants={itemVariants}
-                      className="group relative bg-[#080808] border border-white/5 p-8 lg:p-10 hover:border-indigo-500/30 transition-all duration-500"
+                      className="group relative bg-[#080808] border border-white/5 p-6 md:p-10 hover:border-indigo-500/30 transition-all duration-500"
                     >
                       <div className="flex flex-col gap-2">
-                        <span className="text-gray-500 font-mono text-xs tracking-[0.2em] uppercase">{metric.label}</span>
-                        <span className="text-5xl lg:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-white to-gray-600 tracking-tighter group-hover:from-indigo-400 group-hover:to-white transition-all duration-500">
+                        <span className="text-gray-500 font-mono text-[10px] md:text-xs tracking-[0.2em] uppercase">{metric.label}</span>
+                        <span className="text-3xl md:text-5xl lg:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-white to-gray-600 tracking-tighter group-hover:from-indigo-400 group-hover:to-white transition-all duration-500">
                           {metric.value}
                         </span>
                       </div>
-                      <p className="mt-4 text-gray-400 text-sm border-t border-white/10 pt-4">
+                      <p className="mt-3 md:mt-4 text-gray-400 text-xs md:text-sm border-t border-white/10 pt-3 md:pt-4">
                         {metric.detail}
                       </p>
                     </motion.div>
@@ -167,10 +167,10 @@ export const SlideLayout: React.FC<SlideLayoutProps> = ({ slide }) => {
       case SlideType.BUSINESS:
       case SlideType.ROADMAP:
         return (
-          <div className="flex flex-col h-full pt-16 md:pt-24 max-w-7xl mx-auto w-full px-6 md:px-12">
-             <motion.div variants={itemVariants} className="mb-20">
+          <div className="flex flex-col min-h-full pt-24 md:pt-24 max-w-7xl mx-auto w-full px-6 md:px-12 pb-16">
+             <motion.div variants={itemVariants} className="mb-12 md:mb-20">
                 <h3 className="text-indigo-500 font-mono text-xs tracking-[0.3em] mb-4 uppercase font-bold">{slide.subtitle}</h3>
-                <h2 className="text-5xl md:text-7xl font-bold tracking-tight text-white">{slide.title}</h2>
+                <h2 className="text-3xl md:text-7xl font-bold tracking-tight text-white">{slide.title}</h2>
              </motion.div>
 
              <div className="grid grid-cols-1 md:grid-cols-2 gap-0 border-t border-b border-white/10 divide-y md:divide-y-0 md:divide-x divide-white/10">
@@ -178,16 +178,16 @@ export const SlideLayout: React.FC<SlideLayoutProps> = ({ slide }) => {
                  <motion.div 
                     key={i}
                     variants={techCardVariants}
-                    className="relative p-12 lg:p-16 flex flex-col group hover:bg-white/[0.02] transition-colors duration-500"
+                    className="relative p-8 md:p-16 flex flex-col group hover:bg-white/[0.02] transition-colors duration-500"
                  >
-                    <div className="mb-8">
-                       <h4 className="text-sm font-mono text-gray-500 mb-2 uppercase tracking-widest">{col.title}</h4>
-                       <div className="text-4xl md:text-5xl text-white font-medium tracking-tighter">{col.price}</div>
+                    <div className="mb-6 md:mb-8">
+                       <h4 className="text-xs md:text-sm font-mono text-gray-500 mb-2 uppercase tracking-widest">{col.title}</h4>
+                       <div className="text-3xl md:text-5xl text-white font-medium tracking-tighter">{col.price}</div>
                     </div>
                     
-                    <ul className="space-y-6 mt-auto">
+                    <ul className="space-y-4 md:space-y-6 mt-auto">
                       {col.features.map((feat, fi) => (
-                        <li key={fi} className="flex items-start text-base text-gray-400 group-hover:text-gray-200 transition-colors">
+                        <li key={fi} className="flex items-start text-sm md:text-base text-gray-400 group-hover:text-gray-200 transition-colors">
                           <div className="mr-4 w-1.5 h-1.5 bg-indigo-500 mt-2 flex-shrink-0"></div>
                           <span className="font-light">{feat}</span>
                         </li>
@@ -201,25 +201,25 @@ export const SlideLayout: React.FC<SlideLayoutProps> = ({ slide }) => {
         
       case SlideType.TEAM:
         return (
-          <div className="flex flex-col h-full pt-16 md:pt-24 max-w-[1400px] mx-auto w-full px-6 md:px-12">
-            <motion.div variants={itemVariants} className="mb-20 border-b border-white/[0.05] pb-8">
+          <div className="flex flex-col min-h-full pt-24 md:pt-24 max-w-[1400px] mx-auto w-full px-6 md:px-12 pb-16">
+            <motion.div variants={itemVariants} className="mb-12 md:mb-20 border-b border-white/[0.05] pb-8">
               <h3 className="text-indigo-500 font-mono text-xs tracking-[0.3em] mb-4 uppercase font-bold">{slide.subtitle}</h3>
-              <h2 className="text-5xl md:text-7xl font-bold text-white tracking-tighter">{slide.title}</h2>
+              <h2 className="text-3xl md:text-7xl font-bold text-white tracking-tighter">{slide.title}</h2>
             </motion.div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
               {slide.content?.members?.map((member, i) => (
                 <motion.div
                   key={i}
                   variants={techCardVariants}
-                  className="flex flex-col bg-white/[0.02] border border-white/5 p-8 hover:bg-white/[0.05] hover:border-indigo-500/30 transition-all duration-500"
+                  className="flex flex-col bg-white/[0.02] border border-white/5 p-6 md:p-8 hover:bg-white/[0.05] hover:border-indigo-500/30 transition-all duration-500"
                 >
-                  <div className="mb-6 w-12 h-12 bg-white/5 rounded-full flex items-center justify-center text-indigo-400 font-mono text-sm border border-white/10">
+                  <div className="mb-4 md:mb-6 w-10 h-10 md:w-12 md:h-12 bg-white/5 rounded-full flex items-center justify-center text-indigo-400 font-mono text-sm border border-white/10">
                     {member.name.charAt(0)}
                   </div>
-                  <h4 className="text-2xl font-bold text-white mb-2 tracking-tight">{member.name}</h4>
-                  <p className="text-indigo-400 font-mono text-xs tracking-widest uppercase mb-4">{member.role}</p>
-                  <p className="text-gray-400 text-sm font-light leading-relaxed border-t border-white/10 pt-4">
+                  <h4 className="text-xl md:text-2xl font-bold text-white mb-2 tracking-tight">{member.name}</h4>
+                  <p className="text-indigo-400 font-mono text-[10px] md:text-xs tracking-widest uppercase mb-4">{member.role}</p>
+                  <p className="text-gray-400 text-xs md:text-sm font-light leading-relaxed border-t border-white/10 pt-4">
                     {member.background}
                   </p>
                 </motion.div>
@@ -230,22 +230,22 @@ export const SlideLayout: React.FC<SlideLayoutProps> = ({ slide }) => {
 
       case SlideType.ASK:
         return (
-          <div className="flex flex-col h-full justify-center items-center text-center max-w-5xl mx-auto px-6">
-             <motion.div variants={itemVariants} className="relative mb-20">
+          <div className="flex flex-col h-full justify-center items-center text-center max-w-5xl mx-auto px-6 pt-20">
+             <motion.div variants={itemVariants} className="relative mb-12 md:mb-20">
                {/* Ambient Glow behind title */}
                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-indigo-500/10 blur-[120px] rounded-full pointer-events-none"></div>
                
-               <h3 className="text-indigo-400 font-mono text-xs tracking-[0.4em] mb-8 uppercase">
+               <h3 className="text-indigo-400 font-mono text-[10px] md:text-xs tracking-[0.4em] mb-6 md:mb-8 uppercase">
                  {slide.subtitle}
                </h3>
-               <h2 className="text-5xl md:text-8xl font-bold leading-[0.9] text-white tracking-tighter mix-blend-screen">
+               <h2 className="text-4xl md:text-8xl font-bold leading-[0.9] text-white tracking-tighter mix-blend-screen">
                  {slide.content?.heading}
                </h2>
              </motion.div>
 
              <motion.p 
               variants={itemVariants}
-              className="text-gray-400 text-xl md:text-2xl font-light max-w-3xl mb-24 leading-relaxed"
+              className="text-gray-400 text-lg md:text-2xl font-light max-w-3xl mb-16 md:mb-24 leading-relaxed"
              >
                {slide.content?.body}
              </motion.p>
@@ -256,37 +256,37 @@ export const SlideLayout: React.FC<SlideLayoutProps> = ({ slide }) => {
                   href="https://anoteroslogos.com/" 
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative inline-flex items-center justify-center px-12 py-4 bg-transparent overflow-hidden cursor-pointer"
+                  className="group relative inline-flex items-center justify-center px-8 py-3 md:px-12 md:py-4 bg-transparent overflow-hidden cursor-pointer"
                  >
                    <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out"></span>
                    <span className="absolute inset-0 border border-white/20 group-hover:border-indigo-500/50 transition-colors duration-300"></span>
-                   <span className="relative font-mono text-sm tracking-[0.3em] uppercase text-white group-hover:text-indigo-300 transition-colors">anoteroslogos.com</span>
+                   <span className="relative font-mono text-xs md:text-sm tracking-[0.3em] uppercase text-white group-hover:text-indigo-300 transition-colors">anoteroslogos.com</span>
                  </a>
                </motion.div>
 
                <motion.div variants={itemVariants}>
                  <a 
-                   href="mailto:Peitho@anoteroslogos.com" 
-                   className="text-gray-500 hover:text-white transition-colors duration-300 font-mono text-xs tracking-widest uppercase border-b border-transparent hover:border-white/30 pb-1"
+                   href="mailto:peitho@anoteroslogos.com" 
+                   className="text-gray-500 hover:text-white transition-colors duration-300 font-mono text-[10px] md:text-xs tracking-widest uppercase border-b border-transparent hover:border-white/30 pb-1"
                  >
-                   Peitho@anoteroslogos.com
+                   peitho@anoteroslogos.com
                  </a>
                </motion.div>
 
                <motion.div variants={itemVariants} className="mt-2">
                  <a 
-                   href="https://github.com/DelovoyMotiv/anteroslogos" 
+                   href="https://github.com/DelovoyMotiv/anoteroslogos" 
                    target="_blank"
                    rel="noopener noreferrer"
                    className="text-gray-500 hover:text-white transition-colors duration-300"
                    aria-label="GitHub Repository"
                  >
-                   <IconRenderer name="Github" className="w-6 h-6" />
+                   <IconRenderer name="Github" className="w-5 h-5 md:w-6 md:h-6" />
                  </a>
                </motion.div>
              </div>
              
-             <motion.div variants={itemVariants} className="mt-20 flex gap-4 opacity-30">
+             <motion.div variants={itemVariants} className="mt-12 md:mt-20 flex gap-4 opacity-30 pb-8">
                 <div className="w-1 h-1 bg-white rounded-full"></div>
                 <div className="w-1 h-1 bg-white rounded-full"></div>
                 <div className="w-1 h-1 bg-white rounded-full"></div>
@@ -305,7 +305,7 @@ export const SlideLayout: React.FC<SlideLayoutProps> = ({ slide }) => {
       initial="hidden"
       animate="visible"
       exit="exit"
-      className="w-full h-full p-4 md:p-8 flex flex-col relative z-10 overflow-hidden"
+      className="w-full min-h-full flex flex-col relative z-10"
     >
       {renderContent()}
     </motion.div>

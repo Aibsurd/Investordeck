@@ -69,8 +69,8 @@ export const Deck: React.FC = () => {
     >
       <Background />
       
-      {/* Header / Brand - Ultra Minimal */}
-      <div className="absolute top-0 left-0 w-full px-6 py-6 md:px-12 md:py-8 z-30 flex justify-between items-center mix-blend-difference text-white/50">
+      {/* Header / Brand - Fixed at top */}
+      <div className="absolute top-0 left-0 w-full px-6 py-6 md:px-12 md:py-8 z-30 flex justify-between items-center mix-blend-difference text-white/50 pointer-events-none">
         <div className="flex items-center gap-2">
            <div className="w-2 h-2 bg-indigo-500 rounded-full"></div>
            <div className="text-[10px] md:text-xs font-mono tracking-[0.2em] uppercase font-bold text-white">Anóteros Lógos</div>
@@ -82,11 +82,13 @@ export const Deck: React.FC = () => {
         </div>
       </div>
 
-      {/* Main Slide Area */}
-      <div className="flex-grow relative w-full h-full flex flex-col justify-center">
-        <AnimatePresence mode="wait">
-          <SlideLayout key={currentSlideIndex} slide={SLIDES[currentSlideIndex]} />
-        </AnimatePresence>
+      {/* Main Slide Area - Scrollable for mobile */}
+      <div className="flex-grow relative w-full h-full overflow-y-auto overflow-x-hidden scrollbar-hide">
+        <div className="min-h-full flex flex-col justify-center">
+          <AnimatePresence mode="wait">
+            <SlideLayout key={currentSlideIndex} slide={SLIDES[currentSlideIndex]} />
+          </AnimatePresence>
+        </div>
       </div>
 
       {/* Navigation Controls - Minimal and Floating */}
