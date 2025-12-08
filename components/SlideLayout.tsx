@@ -275,7 +275,7 @@ export const SlideLayout: React.FC<SlideLayoutProps> = ({ slide }) => {
 
                <motion.div variants={itemVariants} className="mt-2">
                  <a 
-                   href="https://github.com/DelovoyMotiv/anoteroslogos" 
+                   href="https://github.com/DelovoyMotiv/anteroslogos" 
                    target="_blank"
                    rel="noopener noreferrer"
                    className="text-gray-500 hover:text-white transition-colors duration-300"
