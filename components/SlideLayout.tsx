@@ -127,7 +127,7 @@ export const SlideLayout: React.FC<SlideLayoutProps> = ({ slide }) => {
       case SlideType.MARKET:
         return (
            <div className="flex flex-col min-h-full justify-center pt-24 pb-16 max-w-7xl mx-auto w-full px-6 md:px-12">
-             <motion.div variants={itemVariants} className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-32 items-center">
+             <motion.div variants={itemVariants} className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
                 
                 {/* Left: Heading & Context */}
                 <div>
@@ -139,21 +139,21 @@ export const SlideLayout: React.FC<SlideLayoutProps> = ({ slide }) => {
                    </p>
                 </div>
 
-                {/* Right: Metrics */}
-                <div className="space-y-4 md:space-y-8">
+                {/* Right: Metrics - Compacted */}
+                <div className="space-y-3 md:space-y-5">
                   {slide.content?.metrics?.map((metric, i) => (
                     <motion.div 
                       key={i}
                       variants={itemVariants}
-                      className="group relative bg-[#080808] border border-white/5 p-6 md:p-10 hover:border-indigo-500/30 transition-all duration-500"
+                      className="group relative bg-[#080808] border border-white/5 p-4 md:p-6 lg:p-7 hover:border-indigo-500/30 transition-all duration-500"
                     >
-                      <div className="flex flex-col gap-2">
+                      <div className="flex flex-col gap-1">
                         <span className="text-gray-500 font-mono text-[10px] md:text-xs tracking-[0.2em] uppercase">{metric.label}</span>
-                        <span className="text-3xl md:text-5xl lg:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-white to-gray-600 tracking-tighter group-hover:from-indigo-400 group-hover:to-white transition-all duration-500">
+                        <span className="text-3xl md:text-5xl lg:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-white to-gray-600 tracking-tighter group-hover:from-indigo-400 group-hover:to-white transition-all duration-500">
                           {metric.value}
                         </span>
                       </div>
-                      <p className="mt-3 md:mt-4 text-gray-400 text-xs md:text-sm border-t border-white/10 pt-3 md:pt-4">
+                      <p className="mt-2 md:mt-3 text-gray-400 text-xs md:text-sm border-t border-white/10 pt-2 md:pt-3 leading-tight">
                         {metric.detail}
                       </p>
                     </motion.div>
