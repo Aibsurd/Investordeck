@@ -7,27 +7,27 @@ interface SlideLayoutProps {
   slide: SlideContent;
 }
 
+// INSTANT TRANSITIONS CONFIGURATION
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: { 
     opacity: 1,
     transition: { 
-      duration: 0.8, 
-      ease: [0.16, 1, 0.3, 1],
-      staggerChildren: 0.1
+      duration: 0, // Instant
+      staggerChildren: 0 // No delay between items
     }
   },
-  exit: { opacity: 0, transition: { duration: 0.4 } }
+  exit: { opacity: 0, transition: { duration: 0 } }
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 20, filter: 'blur(5px)' },
-  visible: { opacity: 1, y: 0, filter: 'blur(0px)', transition: { duration: 0.8, ease: "easeOut" } }
+  hidden: { opacity: 1, y: 0, filter: 'blur(0px)' }, // Reset hidden state to visible defaults to prevent flicker
+  visible: { opacity: 1, y: 0, filter: 'blur(0px)', transition: { duration: 0 } }
 };
 
 const techCardVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }
+  hidden: { opacity: 1, y: 0 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0 } }
 };
 
 export const SlideLayout: React.FC<SlideLayoutProps> = ({ slide }) => {

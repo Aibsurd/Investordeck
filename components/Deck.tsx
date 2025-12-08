@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
-import { AnimatePresence } from 'framer-motion';
 import { SLIDES } from '../constants';
 import { SlideLayout } from './SlideLayout';
 import { Background } from './Background';
@@ -85,9 +84,7 @@ export const Deck: React.FC = () => {
       {/* Main Slide Area - Scrollable for mobile */}
       <div className="flex-grow relative w-full h-full overflow-y-auto overflow-x-hidden scrollbar-hide">
         <div className="min-h-full flex flex-col justify-center">
-          <AnimatePresence mode="wait">
             <SlideLayout key={currentSlideIndex} slide={SLIDES[currentSlideIndex]} />
-          </AnimatePresence>
         </div>
       </div>
 
