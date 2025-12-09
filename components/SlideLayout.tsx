@@ -203,6 +203,19 @@ export const SlideLayout: React.FC<SlideLayoutProps> = ({ slide }) => {
                  </motion.div>
                ))}
              </div>
+             
+             {/* Added summary body text if present */}
+             {slide.content?.body && (
+               <motion.div 
+                 variants={itemVariants} 
+                 className="mt-12 text-center border-t border-white/5 pt-8"
+               >
+                 {/* UPDATED: Reduced font size (text-xs md:text-sm) and max-width (max-w-6xl) to ensure single line fit */}
+                 <p className="text-gray-400 text-xs md:text-sm font-mono tracking-tight opacity-80 max-w-6xl mx-auto">
+                   {slide.content.body}
+                 </p>
+               </motion.div>
+             )}
           </div>
         );
         

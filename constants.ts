@@ -284,7 +284,7 @@ export const SLIDES: SlideContent[] = [
           title: "SaaS (Subscriptions)",
           price: "Recurring USDC",
           features: [
-            "GEO Audit Pro Plans ($149/mo)",
+            "Enterprise & Pro Plans ($499 - $15k/mo)",
             "Competitive Monitoring",
             "Citation Proofs",
             "Tenant Isolation"
@@ -310,7 +310,8 @@ export const SLIDES: SlideContent[] = [
             "High-throughput SLAs"
           ]
         }
-      ]
+      ],
+      body: "SaaS builds the Supply (Data). API builds the Demand (Agents). Network Fees capture the Value exchange."
     }
   },
   {
