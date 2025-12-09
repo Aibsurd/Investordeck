@@ -319,7 +319,7 @@ export const SLIDES: SlideContent[] = [
     title: "THE ASK",
     subtitle: "SCALE THE NETWORK",
     content: {
-      heading: "THE RAILS ARE BUILT. THE CAPITAL IS ROTATING.",
+      heading: "THE RAILS ARE BUILT. THE CAPITAL \u00A0IS ROTATING.",
       body: "We are witnessing the end of the Search Era and the birth of the Agentic Economy.\n\nAnóteros Lógos is the infrastructure that makes this transition solvent, scalable, and inevitable."
     }
   }

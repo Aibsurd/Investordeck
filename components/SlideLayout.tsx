@@ -245,7 +245,8 @@ export const SlideLayout: React.FC<SlideLayoutProps> = ({ slide }) => {
                <h3 className="text-indigo-400 font-mono text-[10px] md:text-xs tracking-[0.4em] mb-6 md:mb-8 uppercase">
                  {slide.subtitle}
                </h3>
-               <h2 className="text-4xl md:text-8xl font-bold leading-[0.9] text-white tracking-tighter mix-blend-screen">
+               {/* UPDATED: tracking-tighter to tracking-tight for better word spacing */}
+               <h2 className="text-4xl md:text-8xl font-bold leading-[0.9] text-white tracking-tight mix-blend-screen">
                  {slide.content?.heading}
                </h2>
              </motion.div>
