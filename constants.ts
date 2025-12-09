@@ -21,7 +21,7 @@ export const SLIDES: SlideContent[] = [
       metrics: [
         {
           label: "INTELLIGENCE",
-          value: "-99% Cost",
+          value: "-60% Cost",
           detail: "Cost of Thought (LLM Tokens) collapsed. Intelligence is now a commodity."
         },
         {
