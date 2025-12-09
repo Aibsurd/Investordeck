@@ -98,21 +98,21 @@ export const Deck: React.FC = () => {
           />
         </div>
         
-        {/* Controls - Only visible if interacting or on larger screens */}
-        <div className="absolute bottom-8 right-8 pointer-events-auto hidden md:flex gap-2">
+        {/* Controls - Visible on both Mobile and Desktop now */}
+        <div className="absolute bottom-6 right-6 md:bottom-8 md:right-8 pointer-events-auto flex gap-3 md:gap-2 z-50">
           <button 
             onClick={prevSlide}
             disabled={currentSlideIndex === 0}
-            className="w-10 h-10 flex items-center justify-center border border-white/10 text-white/50 rounded-full hover:border-indigo-500 hover:text-indigo-400 hover:bg-indigo-500/10 disabled:opacity-20 disabled:cursor-not-allowed transition-all duration-300"
+            className="w-12 h-12 md:w-10 md:h-10 flex items-center justify-center border border-white/10 text-white/50 rounded-full hover:border-indigo-500 hover:text-indigo-400 bg-black/50 backdrop-blur-sm md:bg-transparent md:backdrop-blur-none hover:bg-indigo-500/10 disabled:opacity-20 disabled:cursor-not-allowed transition-all duration-300 active:scale-95"
           >
-            <ChevronLeft size={16} />
+            <ChevronLeft size={18} />
           </button>
           <button 
             onClick={nextSlide}
             disabled={currentSlideIndex === SLIDES.length - 1}
-            className="w-10 h-10 flex items-center justify-center border border-white/10 text-white/50 rounded-full hover:border-indigo-500 hover:text-indigo-400 hover:bg-indigo-500/10 disabled:opacity-20 disabled:cursor-not-allowed transition-all duration-300"
+            className="w-12 h-12 md:w-10 md:h-10 flex items-center justify-center border border-white/10 text-white/50 rounded-full hover:border-indigo-500 hover:text-indigo-400 bg-black/50 backdrop-blur-sm md:bg-transparent md:backdrop-blur-none hover:bg-indigo-500/10 disabled:opacity-20 disabled:cursor-not-allowed transition-all duration-300 active:scale-95"
           >
-            <ChevronRight size={16} />
+            <ChevronRight size={18} />
           </button>
         </div>
       </div>

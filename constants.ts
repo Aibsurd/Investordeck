@@ -66,7 +66,7 @@ export const SLIDES: SlideContent[] = [
     id: 4,
     type: SlideType.SOLUTION,
     title: "THE PLATFORM",
-    subtitle: "V4.1.1 INFRASTRUCTURE",
+    subtitle: "V4.2.1 INFRASTRUCTURE",
     content: {
       heading: "A Unified Agent Operating System",
       body: "The complete stack. From the transport layer down to final settlement.",
@@ -236,7 +236,7 @@ export const SLIDES: SlideContent[] = [
         },
         {
           label: "VERSION",
-          value: "v4.1.1",
+          value: "v4.2.1",
           detail: "Live production release. 18 core modules."
         }
       ],
@@ -316,6 +316,12 @@ export const SLIDES: SlideContent[] = [
   },
   {
     id: 13,
+    type: SlideType.TELEMETRY,
+    title: "SYSTEM STATUS",
+    subtitle: "LIVE NETWORK TELEMETRY"
+  },
+  {
+    id: 14,
     type: SlideType.ASK,
     title: "THE ASK",
     subtitle: "SCALE THE NETWORK",

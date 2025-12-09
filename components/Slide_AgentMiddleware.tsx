@@ -64,7 +64,7 @@ const CodeTerminal: React.FC = () => {
           <div className="w-3 h-3 rounded-full bg-yellow-500/20 border border-yellow-500/50" />
           <div className="w-3 h-3 rounded-full bg-green-500/20 border border-green-500/50" />
         </div>
-        <div className="ml-4 text-white/30 text-[10px] tracking-widest uppercase truncate">anoteros-cli — v4.1.1</div>
+        <div className="ml-4 text-white/30 text-[10px] tracking-widest uppercase truncate">anoteros-cli — v4.2.1</div>
       </div>
 
       {/* Terminal Content */}

@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { SlideContent, SlideType } from '../types';
 import { IconRenderer } from './IconRenderer';
 import { SlideAgentMiddleware } from './Slide_AgentMiddleware';
+import { SlideTelemetry } from './Slide_Telemetry';
 
 interface SlideLayoutProps {
   slide: SlideContent;
@@ -38,13 +39,16 @@ export const SlideLayout: React.FC<SlideLayoutProps> = ({ slide }) => {
       case SlideType.AGENT_MIDDLEWARE:
         return <SlideAgentMiddleware slide={slide} />;
 
+      case SlideType.TELEMETRY:
+        return <SlideTelemetry slide={slide} />;
+
       case SlideType.TITLE:
         return (
           <div className="flex flex-col h-full justify-center items-start text-left max-w-7xl mx-auto px-6 pt-24 pb-12 relative z-10">
             <motion.div variants={itemVariants} className="flex items-center gap-4 md:gap-6 mb-8 md:mb-16 opacity-70">
               <span className="text-white font-mono text-[8px] md:text-[10px] tracking-[0.3em] md:tracking-[0.4em] uppercase">Autonomous Infrastructure</span>
               <div className="w-px h-3 bg-white/30"></div>
-              <span className="text-white font-mono text-[8px] md:text-[10px] tracking-[0.3em] md:tracking-[0.4em] uppercase">V4.1.1 Production</span>
+              <span className="text-white font-mono text-[8px] md:text-[10px] tracking-[0.3em] md:tracking-[0.4em] uppercase">V4.2.1 Production</span>
             </motion.div>
             
             <motion.h1 
