@@ -8,7 +8,8 @@ export enum SlideType {
   ROADMAP = 'ROADMAP',
   COMPETITION = 'COMPETITION',
   ASK = 'ASK',
-  TEAM = 'TEAM'
+  TEAM = 'TEAM',
+  AGENT_MIDDLEWARE = 'AGENT_MIDDLEWARE'
 }
 
 export interface SlideContent {
@@ -23,5 +24,6 @@ export interface SlideContent {
     metrics?: { label: string; value: string; detail?: string }[];
     columns?: { title: string; price?: string; features: string[] }[];
     members?: { name: string; role: string; background: string }[];
+    tags?: string[];
   };
 }

@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { SlideContent, SlideType } from '../types';
 import { IconRenderer } from './IconRenderer';
+import { SlideAgentMiddleware } from './Slide_AgentMiddleware';
 
 interface SlideLayoutProps {
   slide: SlideContent;
@@ -34,6 +35,9 @@ export const SlideLayout: React.FC<SlideLayoutProps> = ({ slide }) => {
   
   const renderContent = () => {
     switch (slide.type) {
+      case SlideType.AGENT_MIDDLEWARE:
+        return <SlideAgentMiddleware slide={slide} />;
+
       case SlideType.TITLE:
         return (
           <div className="flex flex-col h-full justify-center items-start text-left max-w-7xl mx-auto px-6 pt-24 pb-12 relative z-10">
@@ -170,19 +174,22 @@ export const SlideLayout: React.FC<SlideLayoutProps> = ({ slide }) => {
           <div className="flex flex-col min-h-full pt-24 md:pt-24 max-w-7xl mx-auto w-full px-6 md:px-12 pb-16">
              <motion.div variants={itemVariants} className="mb-12 md:mb-20">
                 <h3 className="text-indigo-500 font-mono text-xs tracking-[0.3em] mb-4 uppercase font-bold">{slide.subtitle}</h3>
-                <h2 className="text-3xl md:text-7xl font-bold tracking-tight text-white">{slide.title}</h2>
+                {/* Reduced main title size slightly for balance */}
+                <h2 className="text-3xl md:text-6xl font-bold tracking-tight text-white">{slide.title}</h2>
              </motion.div>
 
-             <div className="grid grid-cols-1 md:grid-cols-2 gap-0 border-t border-b border-white/10 divide-y md:divide-y-0 md:divide-x divide-white/10">
+             <div className="grid grid-cols-1 lg:grid-cols-3 gap-0 border-t border-b border-white/10 divide-y lg:divide-y-0 lg:divide-x divide-white/10">
                {slide.content?.columns?.map((col, i) => (
                  <motion.div 
                     key={i}
                     variants={techCardVariants}
-                    className="relative p-8 md:p-16 flex flex-col group hover:bg-white/[0.02] transition-colors duration-500"
+                    // Reduced padding from p-16 to p-10/p-8 to accommodate 3 columns better
+                    className="relative p-6 md:p-8 lg:p-10 flex flex-col group hover:bg-white/[0.02] transition-colors duration-500"
                  >
                     <div className="mb-6 md:mb-8">
                        <h4 className="text-xs md:text-sm font-mono text-gray-500 mb-2 uppercase tracking-widest">{col.title}</h4>
-                       <div className="text-3xl md:text-5xl text-white font-medium tracking-tighter">{col.price}</div>
+                       {/* Significantly reduced font size from 5xl to 4xl/3xl for neatness */}
+                       <div className="text-2xl md:text-3xl lg:text-4xl text-white font-bold tracking-tight leading-tight">{col.price}</div>
                     </div>
                     
                     <ul className="space-y-4 md:space-y-6 mt-auto">
@@ -230,8 +237,8 @@ export const SlideLayout: React.FC<SlideLayoutProps> = ({ slide }) => {
 
       case SlideType.ASK:
         return (
-          <div className="flex flex-col h-full justify-center items-center text-center max-w-5xl mx-auto px-6 pt-20">
-             <motion.div variants={itemVariants} className="relative mb-12 md:mb-20">
+          <div className="flex flex-col min-h-full justify-center items-center text-center max-w-5xl mx-auto px-6 pt-24 pb-16">
+             <motion.div variants={itemVariants} className="relative mb-12 md:mb-16">
                {/* Ambient Glow behind title */}
                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-indigo-500/10 blur-[120px] rounded-full pointer-events-none"></div>
                
@@ -243,12 +250,16 @@ export const SlideLayout: React.FC<SlideLayoutProps> = ({ slide }) => {
                </h2>
              </motion.div>
 
-             <motion.p 
+             <motion.div 
               variants={itemVariants}
-              className="text-gray-400 text-lg md:text-2xl font-light max-w-3xl mb-16 md:mb-24 leading-relaxed"
+              className="text-gray-400 text-lg md:text-2xl font-light max-w-3xl mb-12 md:mb-20 leading-relaxed"
              >
-               {slide.content?.body}
-             </motion.p>
+               {slide.content?.body?.split('\n\n').map((paragraph, index) => (
+                 <p key={index} className={index > 0 ? "mt-6 text-indigo-100/90 font-normal" : ""}>
+                   {paragraph}
+                 </p>
+               ))}
+             </motion.div>
 
              <div className="flex flex-col items-center gap-6">
                <motion.div variants={itemVariants}>
@@ -286,7 +297,7 @@ export const SlideLayout: React.FC<SlideLayoutProps> = ({ slide }) => {
                </motion.div>
              </div>
              
-             <motion.div variants={itemVariants} className="mt-12 md:mt-20 flex gap-4 opacity-30 pb-8">
+             <motion.div variants={itemVariants} className="mt-6 flex gap-4 opacity-30">
                 <div className="w-1 h-1 bg-white rounded-full"></div>
                 <div className="w-1 h-1 bg-white rounded-full"></div>
                 <div className="w-1 h-1 bg-white rounded-full"></div>
