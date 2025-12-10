@@ -9,8 +9,7 @@ export enum SlideType {
   COMPETITION = 'COMPETITION',
   ASK = 'ASK',
   TEAM = 'TEAM',
-  AGENT_MIDDLEWARE = 'AGENT_MIDDLEWARE',
-  TELEMETRY = 'TELEMETRY'
+  AGENT_MIDDLEWARE = 'AGENT_MIDDLEWARE'
 }
 
 export interface SlideContent {

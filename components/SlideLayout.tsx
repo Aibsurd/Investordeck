@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import { SlideContent, SlideType } from '../types';
 import { IconRenderer } from './IconRenderer';
 import { SlideAgentMiddleware } from './Slide_AgentMiddleware';
-import { SlideTelemetry } from './Slide_Telemetry';
 
 interface SlideLayoutProps {
   slide: SlideContent;
@@ -38,9 +37,6 @@ export const SlideLayout: React.FC<SlideLayoutProps> = ({ slide }) => {
     switch (slide.type) {
       case SlideType.AGENT_MIDDLEWARE:
         return <SlideAgentMiddleware slide={slide} />;
-
-      case SlideType.TELEMETRY:
-        return <SlideTelemetry slide={slide} />;
 
       case SlideType.TITLE:
         return (

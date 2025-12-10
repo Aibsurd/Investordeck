@@ -5,7 +5,7 @@ export const SLIDES: SlideContent[] = [
     id: 1,
     type: SlideType.TITLE,
     title: "ANÓTEROS LÓGOS",
-    subtitle: "OS FOR THE AGENT ECONOMY",
+    subtitle: "THE TRANSACTION LAYER FOR AI AGENTS",
     content: {
       heading: "Visibility. Trust. Settlement.",
       body: "Infrastructure for the Machine Economy. We provide GEO Audit, Causal Consensus, and USDC Micropayments for Autonomous Agents."
@@ -316,12 +316,6 @@ export const SLIDES: SlideContent[] = [
   },
   {
     id: 13,
-    type: SlideType.TELEMETRY,
-    title: "SYSTEM STATUS",
-    subtitle: "LIVE NETWORK TELEMETRY"
-  },
-  {
-    id: 14,
     type: SlideType.ASK,
     title: "THE ASK",
     subtitle: "SCALE THE NETWORK",
