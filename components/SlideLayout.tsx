@@ -139,7 +139,13 @@ export const SlideLayout: React.FC<SlideLayoutProps> = ({ slide }) => {
                    <h2 className="text-4xl md:text-8xl font-bold mb-6 md:mb-10 tracking-tighter text-white leading-[0.9]">{slide.title}</h2>
                    <div className="w-16 md:w-24 h-1 bg-indigo-500 mb-6 md:mb-10"></div>
                    <p className="text-lg md:text-2xl text-gray-400 font-light leading-relaxed">
-                     {slide.content?.body}
+                     {slide.content?.body && slide.content.body.split(/(insolvent|inevitable)/gi).map((part, i) => 
+                        ['insolvent', 'inevitable'].includes(part.toLowerCase()) ? (
+                          <span key={i} className="text-white font-medium">{part}</span>
+                        ) : (
+                          part
+                        )
+                      )}
                    </p>
                 </div>
 

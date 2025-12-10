@@ -17,22 +17,22 @@ export const SLIDES: SlideContent[] = [
     title: "THE INFLECTION",
     subtitle: "WHY NOW?",
     content: {
-      body: "Intelligence and Gas are finally cheap. Three years ago, the Agent Economy was insolvent. Today, it is inevitable.",
+      body: "Intelligence and Gas are finally cheap. Three years ago, the Agent Economy was economically insolvent. Today, it is inevitable.",
       metrics: [
         {
           label: "INTELLIGENCE",
-          value: "-60% Cost",
-          detail: "Cost of Thought (LLM Tokens) collapsed. Intelligence is now a commodity."
+          value: "-99% Cost",
+          detail: "The cost of intelligence has collapsed to near zero. Reasoning is no longer a luxury asset; it is a commodity abundant enough to run in infinite loops."
         },
         {
           label: "SETTLEMENT",
           value: "< $0.01",
-          detail: "Base L2 + EIP-4844 allows sub-cent transactions. Agents settle without burning dollars."
+          detail: "Base L2 + EIP-4844 eliminates the gas barrier. Agents can finally execute sub-cent micro-transactions without burning dollars on fees. The friction is gone."
         },
         {
           label: "WORKFORCE",
-          value: "Loop Economy",
-          detail: "Work moves from linear SaaS execution to probabilistic Agent loops."
+          value: "Infinite Workforce",
+          detail: "The shift from human SaaS (1 seat = 1 human) to Autonomous Agents (1 server = 10,000 workers). Labor is now scalable via code, not headcount."
         }
       ]
     }
